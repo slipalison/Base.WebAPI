@@ -1,6 +1,6 @@
 # LEIA-ME #
 
-## **Sml.WebAPI** ##
+## **Base.WebAPI** ##
 
 ### O que contempla esse repositório? ###
 * **SEGURANÇA**
@@ -48,14 +48,14 @@ Nessa classe use como exemplo (Favor ler os comentários, e apagar quando for im
 #!c#
 using Microsoft.Owin;
 using Owin;
-using Sml.WebAPI;
+using Base.WebAPI;
 using System;
 using System.Web.Http;
 
 //informa que essa é a classe owin, facilita o debug caso queira debugar essa classe
-[assembly: OwinStartup(typeof(PROJETO.Startup))]
+[assembly: OwinStartup(typeof(Base.Startup))]
 
-namespace Sml.PROJETO
+namespace Base.PROJETO
 {
     public class Startup
     {
@@ -91,7 +91,7 @@ namespace Sml.PROJETO
             é a pasta da aplicação "../log", caso o path informado esteja
             invalido, ele irá assumir o padrão.
             */
-            config.Filters.Add(new SMLExceptionHandlingAttribute());
+            config.Filters.Add(new ExceptionHandlingAttribute());
 
             //Configuração para que você possa determinar a Rota por annotation.
             config.MapHttpAttributeRoutes();
@@ -132,15 +132,15 @@ Para usar os recursos padrões:
 
 ```
 #!c#
-using Sml.WebAPI.Controller;
-using Sml.WebAPI.JsonCompression;
+using Base.WebAPI.Controller;
+using Base.WebAPI.JsonCompression;
 using System;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace Sml.PROJETO.Controller
+namespace Base.PROJETO.Controller
 {
      // Utilize BaseApiController para herdar o padrão do resultado
     [RoutePrefix("api/v1/Values")]
@@ -181,9 +181,9 @@ namespace Sml.PROJETO.Controller
 #!c#
 
 using Oracle.ManagedDataAccess.Client;
-using Sml.WebAPI;
-using Sml.WebAPI.BasicSql;
-using Sml.WebAPI.JsonCompression;
+using Base.WebAPI;
+using Base.WebAPI.BasicSql;
+using Base.WebAPI.JsonCompression;
 using System;
 using System.Configuration;
 using System.Data;
@@ -192,7 +192,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace Sml.IF.ConsorcioAdesao.API.Controller
+namespace Base.IF.ConsorcioAdesao.API.Controller
 {
     [RoutePrefix("api/v1/Values")]
     public class ValuesController : BaseApiController
