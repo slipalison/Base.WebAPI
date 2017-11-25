@@ -6,20 +6,10 @@ using System.Web.Http.Filters;
 
 namespace Base.WebAPI
 {
-    public sealed class SMLExceptionHandlingAttribute : ExceptionFilterAttribute
+    public sealed class ExceptionHandlingAttribute : ExceptionFilterAttribute
     {
         private readonly string _logFolder;
         private ModelException _mExeption;
-        public SMLExceptionHandlingAttribute() : base()
-        {
-            _logFolder = AppDomain.CurrentDomain.BaseDirectory + @"log" ;
-        }
-
-        public SMLExceptionHandlingAttribute(string logFolder) : base()
-        {
-            
-            _logFolder = logFolder != null ? logFolder : AppDomain.CurrentDomain.BaseDirectory;
-        }
 
 
         public override void OnException(HttpActionExecutedContext actionExecutedContext)
@@ -31,6 +21,16 @@ namespace Base.WebAPI
             WriteLog.Write(_logFolder, _mExeption.ToString());
 
             base.OnException(actionExecutedContext);
+        }
+        public ExceptionHandlingAttribute() : base()
+        {
+            _logFolder = AppDomain.CurrentDomain.BaseDirectory + @"log";
+        }
+
+        public ExceptionHandlingAttribute(string logFolder) : base()
+        {
+
+            _logFolder = logFolder != null ? logFolder : AppDomain.CurrentDomain.BaseDirectory;
         }
 
     }

@@ -8,7 +8,7 @@ namespace Base.WebAPI.LogEngine
     {
         public static IEnumerable<TSource> FromHierarchy<TSource>(this TSource source, Func<TSource, TSource> nextItem) where TSource : class
              => FromHierarchy(source, nextItem, s => s != null);
-        public static string GetaAllMessages(this Exception exception)
+        public static string GetaAllMessages(this System.Exception exception)
         => string.Join(Environment.NewLine, exception.FromHierarchy(ex => ex.InnerException).Select(ex => ex.Message));
         private static IEnumerable<TSource> FromHierarchy<TSource>(this TSource source, Func<TSource, TSource> nextItem, Func<TSource, bool> canContinue)
         {

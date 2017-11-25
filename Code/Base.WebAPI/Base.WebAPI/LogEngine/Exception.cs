@@ -3,14 +3,14 @@ using System.Web;
 
 namespace Base.WebAPI.LogEngine
 {
-    public class SmlException : Exception
+    public class Exception : System.Exception
     {
-        public SmlException(string message): base(message)
+        public Exception(string message): base(message)
         {
-            var bE = new BuildException(HttpContext.Current, new Exception(message), HttpContext.Current.Request.ToString());
+            var bE = new BuildException(HttpContext.Current, new System.Exception(message), HttpContext.Current.Request.ToString());
         }
 
-        public SmlException(string message, Exception inner)
+        public Exception(string message, System.Exception inner)
         : base(message, inner)
         {
             var bE = new BuildException(HttpContext.Current, inner, HttpContext.Current.Request.ToString());

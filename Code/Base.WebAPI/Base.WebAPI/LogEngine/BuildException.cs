@@ -7,10 +7,10 @@ namespace Base.WebAPI.LogEngine
     public class BuildException
     {
         private HttpContext _context;
-        private Exception _err;
+        private System.Exception _err;
         private ModelException _mExeption;
 
-        public BuildException(HttpContext context, Exception err, string request)
+        public BuildException(HttpContext context, System.Exception err, string request)
         {
             _context = context;
             _err = err;
@@ -21,7 +21,7 @@ namespace Base.WebAPI.LogEngine
 
         public ModelException ModelException() => _mExeption;
 
-        private static ModelException BuildExeption(Exception err, string request) =>
+        private static ModelException BuildExeption(System.Exception err, string request) =>
             new ModelException
             {
                 msg = err.FromHierarchy(ex => ex.InnerException).Select(ex => ex.Message),

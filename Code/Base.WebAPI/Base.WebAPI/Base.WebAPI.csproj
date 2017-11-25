@@ -99,12 +99,13 @@
     <Compile Include="JsonCompression\DeflateCompressionAttribute.cs" />
     <Compile Include="LogEngine\ExceptionExtension.cs" />
     <Compile Include="LogEngine\ModelException.cs" />
-    <Compile Include="LogEngine\SmlBuildException.cs" />
-    <Compile Include="LogEngine\SmlException.cs" />
-    <Compile Include="LogEngine\SMLExceptionHandlingAttribute.cs" />
+    <Compile Include="LogEngine\BuildException.cs" />
+    <Compile Include="LogEngine\Exception.cs" />
+    <Compile Include="LogEngine\ExceptionHandlingAttribute.cs" />
     <Compile Include="LogEngine\WriteLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider\AuthAuthorizationServerProvider.cs" />
+    <Compile Include="Startup.cs" />
     <Compile Include="Util\NewtonsoftExtension.cs" />
     <Compile Include="Util\SqlCommanderExtension.cs" />
     <Compile Include="Util\StringExtension.cs" />
